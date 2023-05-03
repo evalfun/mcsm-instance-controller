@@ -48,7 +48,7 @@ func StartMCSMController(configPath string) {
 					appInstance.cq.SendGroupMessage(config.TargetQQGroup, helpMessage)
 				} else {
 					if strings.Index(messageReport.Message, config.CommandPrefix+" ") == 0 {
-						cmdline := strings.Split(messageReport.Message, " ")
+						cmdline := strings.Fields(messageReport.Message)
 						if len(cmdline) == 1 {
 							appInstance.cq.SendGroupMessage(config.TargetQQGroup, helpMessage)
 							continue
@@ -56,6 +56,7 @@ func StartMCSMController(configPath string) {
 						functionIndex := getFunction(appInstance, cmdline[1])
 						if functionIndex == -1 {
 							appInstance.cq.SendGroupMessage(config.TargetQQGroup, helpMessage)
+							continue
 						}
 						userLevel := getUserLevel(config.AdminQQList, messageReport.UserID)
 						if userLevel < appInstance.functionList[functionIndex].level {
