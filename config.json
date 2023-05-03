@@ -1,0 +1,55 @@
+{
+    "mcsm_endpoint": "http://MCSM服务器地址:23333",
+    "mcsm_api_key": "MCSM API KEY",
+    "instance_list": [
+        {
+            "instance_name": "创造",
+            "instance_uuid": "远程/本地实例标识符",
+            "node_uuid": "远程节点标识符"
+        },
+        {
+            "instance_name": "生存",
+            "instance_uuid": "远程/本地实例标识符",
+            "node_uuid": "远程节点标识符"
+        }
+    ],
+    "cq_endpoint": "ws://go-cqhttp的ws地址+端口/",
+    "target_qq_group": 111222333,
+    "admin_qq_list": [
+        {
+            "id": 1122334455,
+            "level": 999
+        }
+    ],
+    "prefix": "/mcsm",
+    "function_level": [
+        {
+            "function": "start",
+            "level": 0
+        },
+        {
+            "function": "restart",
+            "level": 15
+        },
+        {
+            "function": "stop",
+            "level": 20
+        },
+        {
+            "function": "kill",
+            "level": 20
+        },
+        {
+            "function": "list",
+            "level": 0
+        },
+        {
+            "function": "setuser",
+            "level": 999
+        },
+        {
+            "function": "listuser",
+            "level": 0
+        }
+    ]
+}
