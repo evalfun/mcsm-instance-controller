@@ -12,6 +12,9 @@ func stopInstance(cmdline []string, userID int64, appInstance *appStatus) string
 		return "请提供服务器名称"
 	}
 	instanceIndex := getInstanceByInstanceName(appInstance.config.InstanceList, cmdline[2])
+	if instanceIndex == -1 {
+		return "未找到此服务器"
+	}
 	response, err := appInstance.mcsm.StopInstance(appInstance.config.InstanceList[instanceIndex].InstanceUUID,
 		appInstance.config.InstanceList[instanceIndex].NodeUUID,
 	)
@@ -29,6 +32,9 @@ func startInstance(cmdline []string, userID int64, appInstance *appStatus) strin
 		return "请提供服务器名称"
 	}
 	instanceIndex := getInstanceByInstanceName(appInstance.config.InstanceList, cmdline[2])
+	if instanceIndex == -1 {
+		return "未找到此服务器"
+	}
 	response, err := appInstance.mcsm.StartInstance(appInstance.config.InstanceList[instanceIndex].InstanceUUID,
 		appInstance.config.InstanceList[instanceIndex].NodeUUID,
 	)
@@ -46,6 +52,9 @@ func restartInstance(cmdline []string, userID int64, appInstance *appStatus) str
 		return "请提供服务器名称"
 	}
 	instanceIndex := getInstanceByInstanceName(appInstance.config.InstanceList, cmdline[2])
+	if instanceIndex == -1 {
+		return "未找到此服务器"
+	}
 	response, err := appInstance.mcsm.RestartInstance(appInstance.config.InstanceList[instanceIndex].InstanceUUID,
 		appInstance.config.InstanceList[instanceIndex].NodeUUID,
 	)
@@ -63,6 +72,9 @@ func killInstance(cmdline []string, userID int64, appInstance *appStatus) string
 		return "请提供服务器名称"
 	}
 	instanceIndex := getInstanceByInstanceName(appInstance.config.InstanceList, cmdline[2])
+	if instanceIndex == -1 {
+		return "未找到此服务器"
+	}
 	response, err := appInstance.mcsm.KillInstance(appInstance.config.InstanceList[instanceIndex].InstanceUUID,
 		appInstance.config.InstanceList[instanceIndex].NodeUUID,
 	)
